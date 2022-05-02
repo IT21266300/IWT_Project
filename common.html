@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Trust Bank Home</title>
+  <link rel="shortcut icon" href="./img/logo/logo01.png">
+  <link rel="stylesheet" href="./style/common-style.css">
+  <link rel="stylesheet" href="./img/fontawesome-free-6.1.1-web/css/all.css">
+  <!-- <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <main class="container" id="m-cont">
+    <nav class="details-nav">
+      <ul class="d-nav details-list">
+        <li><a href="#"><i class="fa-solid fa-location-dot"></i><span>Royal JP, MS, Kandy</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-phone"></i><span>+94 112356234</span></a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i><span>localTrust@info.lk</span></a></li>
+      </ul>
+      <ul class="d-nav apps-list">
+        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+      </ul>
+    </nav>
+    <!-- header -->
+    <header class="top-header" id="header-top">
+      <div class="t-h-st">
+        <div class="logo-content">
+          <a href="#" class="logo-link"><img src="./img/logo/logo01.png" style="color:#fff;" alt="#" class="logo-img"></a>
+        </div>
+        <div class="search-content">
+          <div class="s-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <div class="s-bar">
+            <input type="search" name="search" id="search-input" placeholder="Search here">
+            <button type="button"  id="close-btn" onclick="clearContent()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+        <button onclick="togNav()" class="btn hamburger"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <ul class="t-nav-list">
+        <li class="t-nav-item"><a href="#" class="t-nav-link">Home</a></li>
+
+        <!-- dropdown list -->
+        <li class="t-nav-item">
+          <a href="#" class="t-nav-link prod" id="pro"><span>Products</span><i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-list product" id="product">
+            <li><a href="#" class="drop-link">Product</a></li>
+            <li><a href="#" class="drop-link">Product</a></li>
+            <li><a href="#" class="drop-link">Product</a></li>
+          </ul>
+        </li>
+        <li class="t-nav-item">
+          <a href="#" class="t-nav-link ser" id="ser"><span>Services</span><i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="dropdown-list service" id="service">
+            <li><a href="#" class="drop-link">Service</a></li>
+            <li><a href="#" class="drop-link">Service</a></li>
+            <li><a href="#" class="drop-link">Service</a></li>
+          </ul>
+        </li>
+        <!-- end of dropdown list -->
+
+        <li class="t-nav-item"><a href="#" class="t-nav-link">Contact</a></li>
+        <li class="t-nav-item"><a href="#" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Accounts</span></a></li>
+      </ul>
+      </nav>
+    </header>
+    <!-- end of header -->
+
+    <!-- main section -->
+    <section class="main-section">
+      carsole
+    </section>
+    <!-- end of main section -->
+
+    <!-- footer -->
+    <footer>
+      <h2 class="f-title">Local Trust Bank of Sri Lanka</h2>
+      <p class="f-para">Royal Junction Park, Main Street Kandy</p>
+      <p class="copy-right">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
+    </footer>
+    <!-- end of footer -->
+    <div class="popup-feed">
+      <button href="#" class="btn feed-link">
+        <span>Feedback</span>
+        <i class="fas fa-comments"></i>
+      </button>
+    </div>
+
+    <section class="feedback-sec">
+      <aside class="feedback-content">
+        <button class="btn close-btn f-c-btn"><i class="fa-solid fa-xmark"></i></button>
+        <h1>Local Trust Bank</h1>
+        <div class="f-f-content">
+          <form action="#" class="f-f-form">
+            <div class="f-f-item">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="f-f-email" placeholder="example123@info.com">
+            </div>           
+            <div class="f-f-item">
+              <label for="message">What do you have to say about our services?</label>
+              <textarea name="message" id="f-f-message" placeholder="Enter your suggestions"></textarea>
+            </div>
+            <button type="submit" class="btn f-s-btn"><span>Send feedback</span><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-angles-up"></i></a>
+  </main>
+  <script src="./JS/script.js"></script>
+</body>
