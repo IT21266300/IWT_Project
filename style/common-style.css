@@ -203,8 +203,8 @@ html{
   color:var(--sec-clr);
 }
 
-.logo-content{
-  width: 9rem;
+.logo-img{
+  width:145px;
 }
 
 .search-content{
