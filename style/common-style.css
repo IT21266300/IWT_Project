@@ -34,9 +34,6 @@ img{
   --thr-clr:rgb(86, 173, 255);
   --pri-bg-clr:rgb(252, 252, 252);
   --sec-bg-clr:rgb(40, 109, 238);
-  /* after colors*/
-  
-  /* end after colors */
   --pri-ft-family:'Open Sans', sans-serif;
   --sec-ft-family:'Nunito', sans-serif;
   --h-ft-family:'Roboto', sans-serif;
@@ -312,6 +309,15 @@ html{
     .t-nav-item:hover{
       color:var(--sec-clr);
       border-radius:50px;
+      background-color:var(--sec-bg-clr);
+    }
+
+    .fixed-top-header .t-nav-item:hover{
+      background:var(--pri-bg-clr);
+    }
+
+    .fixed-top-header .t-nav-item:hover .t-nav-link{
+      color: var(--sec-bg-clr);
     }
 }
 
