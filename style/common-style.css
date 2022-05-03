@@ -92,7 +92,7 @@ html{
 }
 
 .d-nav li a:hover{
-  color:var(--pri-clr);
+  color:rgb(121, 215, 252);
 }
 
 .details-list li a{
@@ -105,9 +105,10 @@ html{
   margin-left:0.256rem;
 }
 
-.apps-list{
-  font-size: var(--h3-ft-size);
+.apps-list a{
+  font-size: 1.5rem;
 }
+
 
 
 /* end of details nav */
@@ -501,6 +502,7 @@ html{
   padding:1rem;
   border:none;
   outline: none;
+  border-radius:10px;
   background:rgb(92, 149, 255);
   font-family: var(--pri-ft-family);
   font-size:1rem;
@@ -528,7 +530,7 @@ html{
 }
 
 .f-s-btn:hover{
-  background:rgb(255, 120, 120);
+  background:var(--thr-clr);
 }
 
 
@@ -540,12 +542,111 @@ footer{
   background:var(--sec-bg-clr);
   color: var(--pri-bg-clr);
   text-align: center;
-  padding:var(--sec-pad) 0;
+  padding:2rem;
   font-family: var(--pri-ft-family);
   display: grid;
   grid-gap:0.875rem;
 }
 
+.footer-content{
+  width: 100%;
+  height:20%;
+  display:grid;
+  grid-template-columns: 4fr 2fr 3fr 3fr;
+  grid-gap:2rem;
+  padding:0 5rem;
+  text-align: left;
+}
+
+.f-c-item{
+  width:100%;
+  height:100%;
+}
+
+#f-para{
+  text-align: left;
+  line-height:1.8;
+}
+
+.f-l-list{
+  width:100%;
+  height:100%;
+  display:grid;
+  text-align: left;
+  margin-left:2rem;
+}
+
+.f-l-list li a{
+  color: var(--pri-bg-clr);
+}
+
+.f-l-list li a:hover{
+  color:var(--sec-clr);
+}
+
+.f-list{
+  width:100%;
+  height:100%;
+  display:block;
+  text-align: left;
+}
+
+.f-list li{
+  padding:0.567rem 0;
+}
+
+.f-list span{
+  margin-left:0.875rem;
+}
+
+.f-sub{
+  width:100%;
+  display:grid;
+  grid-gap:1rem;
+  padding:1rem 0;
+}
+
+#f-input, #f-btn{
+  padding:0.875rem;
+  border-radius:10px;
+  outline: none;
+  font-size:1rem;
+  transition:var(--pri-transition);
+}
+
+#f-input{
+  width: 100%;
+  border:none;
+}
+
+#f-btn{
+  width:50%;
+  cursor: pointer;
+  border:2px solid #fff;
+  background:transparent;
+  color:#fff;
+}
+
+#f-btn:hover{
+  background:var(--sec-clr);
+  color:var(--sec-bg-clr);
+}
+
+.f-apps-list{
+  width:25%;
+  display:flex;
+  justify-content:space-around;
+  font-size:1.5rem;
+  margin: 1rem auto;
+}
+
+.f-apps-list a{
+  color:var(--sec-clr);
+}
+
+.f-apps-list a:hover{
+  color:var(--sec-clr);
+}
 
 .copy-right{
   width: 100%;
