@@ -1,9 +1,7 @@
 /* google fonts link */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Nunito:wght@300;400&family=Open+Sans&family=Poppins:wght@300&family=Roboto&display=swap');
 
-*,
-::before,
-::after{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -29,6 +27,7 @@ img{
 
 
 :root{
+  --pri-sec-clr:rgb(233, 126, 126);
   --pri-clr:rgb(0, 0, 0);
   --sec-clr:rgb(215, 227, 255);
   --thr-clr:rgb(86, 173, 255);
@@ -132,7 +131,6 @@ html{
   display: flex;
   align-items: center;
   justify-content:space-between;
-
 }
 
 .fixed-top-header{
@@ -226,7 +224,7 @@ html{
   align-items:center;
   cursor: pointer;
   color:var(--pri-bg-clr);
-  animation: bounce 2s ease-in-out infinite;
+  animation: bounce 0.5s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -235,6 +233,7 @@ html{
   }
   50%{
     transform: scale(1.5);
+
   }
   100%{
     transform: scale(1);
