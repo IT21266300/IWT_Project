@@ -27,7 +27,6 @@ img{
 
 
 :root{
-  --pri-sec-clr:rgb(233, 126, 126);
   --pri-clr:rgb(0, 0, 0);
   --sec-clr:rgb(215, 227, 255);
   --thr-clr:rgb(86, 173, 255);
@@ -347,6 +346,7 @@ html{
   transform: translateY(20px);
   transition:0.8s ease;
   border-radius:5px;
+  z-index:10000;
 }
 
 .dropdown-list li{
