@@ -373,11 +373,9 @@ html{
 /* main section */
 
 .main-section{
-  width: 100%;
-  height: 100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  max-width: 100%;
+  min-height: 100vh;
+  position: relative;
 }
 
 /* end of main section */
