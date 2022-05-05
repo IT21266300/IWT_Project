@@ -71,13 +71,34 @@ img{
 .carsoule-content{
   width:50%;
   position:relative; 
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.466);
   text-align: center;
-  padding:var(--sec-pad);
+  padding:2.5rem 5rem;
+  border-radius:10px;
 }
 
 .carsoule-title{
   font-size:50px;
   font-family: var(--sec-ft-family);
   color:var(--pri-bg-clr);
+  line-height:3;
+  letter-spacing:1px;
+}
+
+.carsoule-link{
+  background-color:rgba(40, 109, 238, 0.801);
+  padding:1rem 3rem;
+  color:var(--pri-bg-clr);
+  font-family:var(--pri-ft-family);
+  font-size:var(--b-ft-size);
+  letter-spacing:3px;
+  font-weight:bold;
+  text-transform:uppercase;
+  transition:var(--pri-transition);
+  border-radius:50px;
+}
+
+.carsoule-link:hover{
+  background:var(--sec-bg-clr);
+  border-radius:10px;
 }
