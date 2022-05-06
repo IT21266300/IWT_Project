@@ -72,18 +72,18 @@ img{
 .carsoule-content{
   width:50%;
   position:relative; 
-  background-color: rgba(0, 0, 0, 0.466);
+  background-color: rgba(0, 0, 0, 0.726);
   text-align: center;
-  padding:2.5rem 5rem;
+  padding:2.5rem 3rem;
   border-radius:10px;
 }
 
 .carsoule-title{
   font-size:50px;
-  font-family: var(--sec-ft-family);
+  font-family: var(--o-h-ft-family);
   color:var(--pri-bg-clr);
-  line-height:3;
-  letter-spacing:1px;
+  letter-spacing:0.5px;
+  margin-bottom:1rem;
 }
 
 .carsoule-link{
