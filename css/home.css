@@ -53,6 +53,7 @@ img{
   --pri-lin-transition: all 0.5s linear;
   --sec-transition: all 1s ease;
   --sec-lin-transition: all 1s linear;
+  --pri-box-shadow:6px 10px 18px #69696934;
 }
 
 .carsoule{
