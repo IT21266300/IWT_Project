@@ -42,6 +42,7 @@ const feedSec = document.querySelector(".feedback-sec");
 const feedBtn = document.querySelector(".feed-link");
 const closeBtn = document.querySelector(".f-c-btn");
 
+
 feedBtn.addEventListener("click", function(){
   feedSec.classList.add("show-feed");
 });
@@ -51,25 +52,6 @@ closeBtn.addEventListener("click", function(){
 });
 
 
-
-const dropBtn = document.querySelectorAll(".t-nav-link");
-const dropSec = document.querySelectorAll(".dropdown-list");
-dropBtn.forEach((btn) =>{
-  btn.addEventListener("click", function(){
-    var vd = btn.id;
-    if(vd == 'pro'){
-      dropSec[0].classList.toggle("show-dropdown-list");
-    }
-    if(vd == 'ser'){
-      dropSec[1].classList.toggle("show-dropdown-list");
-    }
-  });
-});
-
-const toggleNav = document.querySelector(".t-nav-list");
-function togNav(){
-  toggleNav.classList.toggle("show-t-n-list");
-}
 
 
 // copyright
