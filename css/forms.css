@@ -25,7 +25,7 @@
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  font-family: var(--sec-ft-family);
+  font-family: var(--o-h-ft-family);
   color: var(--pri-bg-clr);
   letter-spacing:3px;
 }

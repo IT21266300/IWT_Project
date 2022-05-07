@@ -22,8 +22,8 @@
     </nav>
     <section class="banner">
       <div class="banner-content">
-        <h1>Account Opening</h1>
-        <h2>Saving Account / Current Account</h2>
+        <h1>Apply to Loan</h1>
+        <h2>Personal/Business/Education/Home/Auto/Vacation</h2>
       </div>
     </section>
 
@@ -41,10 +41,6 @@
             <input type="text" name="lName" id="lName" class="f-input" placeholder="Last Name" required>
           </div>
           <div class="form-item">
-            <label for="">Full Name: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <input type="text" name="fullName" id="fullName" class="f-input" placeholder="Full Name" required>
-          </div>
-          <div class="form-item">
             <label for="">NIC Number: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="text" name="NIC" id="NIC" class="f-input" placeholder="NIC Number" required>
           </div>
@@ -60,8 +56,8 @@
             </div>
           </div>
           <div class="form-item">
-            <label for="">Telephone Number: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <input type="text" name="TPNumber" id="tpnumber" class="f-input" placeholder="Telephone number(+94)" required>
+            <label for="">Telephone Number (+94): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="text" name="TPNumber" id="tpnumber" class="f-input" placeholder="Telephone number (+94)" required>
           </div>
           <div class="form-item">
             <label for="">Email: </label>
@@ -90,24 +86,36 @@
             <input type="text" name="province" id="province" class="f-input" placeholder="Province" required>
           </div>
           <div class="form-item">
-            <label for="">Account Type: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Loan Type: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <select name="mariS" id="f-dropdown">
-              <option value="">Account type</option>
-              <option value="savingAccount">Saving Account</option>
-              <option value="currentAccount">Current Account</option>
+              <option value="">Loan type</option>
+              <option value="Personal Loan">Personal Loan</option>
+              <option value="Business Loan">Business Loan</option>
+              <option value="Education Loan">Education Loan</option>
+              <option value="Home Loan">Home Loan</option>
+              <option value="Auto Loan">Auto Loan</option>
+              <option value="Travel & vacation Loan">Travel & Vacation Loan</option>
             </select>
           </div>
           <div class="form-item">
-            <label for="">Create Username: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <input type="text" name="username" id="username" class="f-input" placeholder="Create Username" required>
+            <label for="">Loan Amount (LKR): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="number" name="loanAmount" id="loanAmount" class="f-input" placeholder="Loan Amount (LKR)" required>
           </div>
           <div class="form-item">
-            <label for="">Create Password: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <input type="password" name="password" id="password" class="f-input" placeholder="Create Password" required>
+            <label for="">Employee Status: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="text" name="employeeStatus" id="employeeStatus" class="f-input" placeholder="Employee Status" required>
           </div>
           <div class="form-item">
-            <label for="">Confirm Password: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <input type="password" name="conPassword" id="conPassword" class="f-input" placeholder="Confirm Password" required>
+            <label for="">Employee Industry: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="text" name="employeeIndustry" id="employeeIndustry" class="f-input" placeholder="Employee Industry" required>
+          </div>
+          <div class="form-item">
+            <label for="">monthly Income (LKR): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="number" name="income" id="income" class="f-input" placeholder="Monthly Income (LKR)" required>
+          </div>
+          <div class="form-item">
+            <label for="">Work Place Telephone Number (+94): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <input type="text" name="workTPNumber" id="worktpnumber" class="f-input" placeholder="Work Place Telephone number (+94)" required>
           </div>
           <div class="agree-item">
             <input type="checkbox" name="agree" id="agree" required>

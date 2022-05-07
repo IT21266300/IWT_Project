@@ -17,7 +17,7 @@
 }
 
 .banner-title{
-  font-family: var(--h-ft-family);
+  font-family: var(--o-h-ft-family);
   font-size:4rem; 
   color:var(--pri-bg-clr);
   letter-spacing:2px;

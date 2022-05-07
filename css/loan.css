@@ -1,0 +1,72 @@
+.banner{
+  width: 100%;
+  height:50vh;
+  background-image: url(../images/back7.jpg);
+  background-repeat: no-repeat;
+  background-position:bottom;
+  background-size:cover;
+}
+
+.banner-content{
+  width: 100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.644);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.banner-title{
+  font-family: var(--o-h-ft-family);
+  font-size:4rem; 
+  color:var(--pri-bg-clr);
+  letter-spacing:2px;
+}
+
+.loan-content{
+  width: 100%;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-gap:3rem;
+  padding:5rem 6rem;
+}
+
+.loan-item{
+  width: 100%;
+  height:auto;
+  background:var(--pri-bg-clr);
+  box-shadow:var(--pri-box-shadow);
+}
+
+.loan-about{
+  padding:1.8rem 1.8rem 3rem 1.8rem;
+  text-align: center;
+}
+
+.loan-item h1{
+  font-family: var(--o-h-ft-family);
+  font-size:var(--h3-ft-size);
+  color:var(--sec-bg-clr);
+  text-align: left;
+}
+
+.loan-item p{
+  font-family: var(--pri-ft-family);
+  text-align: justify;
+  font-size:1rem;
+  padding:1.3rem 0 2rem 0;
+  letter-spacing:1px;
+}
+
+.loan-link{
+  background-color: var(--sec-bg-clr);
+  padding:1rem 1.5rem;
+  color:var(--pri-bg-clr);
+  font-family: var(--pri-ft-family);
+  border-radius:50px;
+  transition: var(--pri-transition);
+}
+
+.loan-link:hover{
+  border-radius:10px;
+}
