@@ -1,0 +1,134 @@
+.banner{
+  width: 100%;
+  height:50vh;
+  background-image: url(../images/back6.jpg);
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
+.banner-content{
+  width: 100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.644);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.banner-title{
+  font-family: var(--o-h-ft-family);
+  font-size:4rem; 
+  color:var(--pri-bg-clr);
+  letter-spacing:2px;
+}
+
+.contact-content{
+  width: 100%;
+  padding:7rem 10rem;
+  display:grid;
+  grid-gap:5rem;
+}
+
+.contact-list{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:3rem;
+  text-align: center;
+}
+
+.contact-list li{
+  width: 100%;
+  padding:2rem 0;
+  box-shadow:var(--sec-box-shadow);
+  background-color:var(--sec-bg-clr);
+  border-radius:10px;
+  color:var(--pri-bg-clr);
+}
+
+.contact-list i{
+  font-size:3rem;
+}
+
+.contact-list h2{
+  font-family: var(--sec-ft-family);
+  font-size:2rem;
+  font-weight: normal;
+  letter-spacing:2px;
+  line-height:2;
+}
+
+.contact-list p{
+  font-family: var(--sec-ft-family);
+  font-size:1.2rem;
+  font-weight: normal;
+  letter-spacing:1px;
+  line-height:1;
+}
+
+.form-content{
+  width: 100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:2rem;
+  box-shadow:var(--pri-box-shadow);
+  padding-left:1rem;
+}
+
+.contact-form h2{
+  font-family: var(--sec-ft-family);
+  font-size:2rem;
+  letter-spacing:2px;
+  line-height:2;
+}
+
+.c-form-item{
+  width:100%;
+  display:grid;
+  grid-gap:1.5rem;
+}
+
+.c-input{
+  padding:1rem;
+  border:none;
+  outline: none;
+  border-bottom:2px solid var(--sec-bg-clr);
+  font-size:1rem;
+}
+
+#cMessage{
+  background:transparent;
+  color: var(--pri-clr);
+  width:100%;
+  height:150px;
+  border-bottom:2px solid var(--sec-bg-clr);
+  border-radius:0;
+}
+
+#send-btn{
+  margin:2rem 0;
+  border:none;
+  outline:none;
+  padding:1rem;
+  font-family: var(--pri-ft-family);
+  font-size:1rem;
+  background-color: var(--sec-bg-clr);
+  color: var(--pri-bg-clr);
+  cursor: pointer;
+  border-radius:10px;
+}
+
+#send-btn:hover{
+  background-color:rgb(38, 38, 255);
+}
+
+.g-map{
+  width: 100%;
+  height:100%;
+}
+
+.g-map iframe{
+  width: 100%;
+  height:100%;
+}
