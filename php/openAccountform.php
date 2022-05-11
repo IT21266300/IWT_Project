@@ -31,7 +31,7 @@
     <section class="main-section">
 
       <div class="form-content">
-        <form action="#" method="post">
+        <form action="../php/openAccount.php" method="post">
           <div class="form-item">
             <label for="">First Name: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="text" name="fName" id="fName" class="f-input" placeholder="First Name" required>
@@ -91,10 +91,10 @@
           </div>
           <div class="form-item">
             <label for="">Account Type: <strong style="color:rgb(40, 109, 238);">*</strong></label>
-            <select name="mariS" id="f-dropdown">
+            <select name="accountType" id="f-dropdown">
               <option value="">Account type</option>
-              <option value="savingAccount">Saving Account</option>
-              <option value="currentAccount">Current Account</option>
+              <option value="Saving Account">Saving Account</option>
+              <option value="Current Account">Current Account</option>
             </select>
           </div>
           <div class="form-item">
@@ -114,8 +114,8 @@
             <label for=""><strong style="color:rgb(40, 109, 238);">*</strong>I agree to <span>terms & conditions</span></label>
           </div>
           <div class="form-btn">
-            <input type="reset" value="Reset" id="resetBtn">
-            <input type="submit" value="Submit Application" id="submitBtn">
+            <input type="reset" value="Reset" id="resetBtn" name="reset">
+            <input type="submit" value="Submit Application" id="submitBtn" name="submit">
           </div>
         </form>
 
@@ -126,7 +126,7 @@
     <footer>
       <p class="copy-right">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
     </footer>
-    <!-- end of footer -->
+    <!-- end of footer -->    
   </main>
   <script>
     const cpyDate = document.getElementById("cpy-date");

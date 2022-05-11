@@ -1,0 +1,20 @@
+create table UserAccount( 
+  First_Name VARCHAR(255) NOT NULL,
+  Last_Name varchar(255) NOT NULL,
+  FULL_Name varchar(255) NOT NULL,
+  NIC char(12) NOT NULL,
+  PassportNO char(12),
+  Gender char(7) NOT NULL,
+  Telephone int(10) NOT NULL,
+  Email varchar(255),
+  MaritalStatus char(15) NOT NULL,
+  Home varchar(255) NOT NULL,
+  City varchar(255) NOT NULL,
+  Province varchar(255) NOT NULL,
+  AccountType varchar(255) NOT NULL,
+  Username varchar(255) NOT NULL PRIMARY KEY,
+  Apassword varchar(255) NOT NULL,
+  AccountNo varchar(255),
+  AccountBalance float(12),
+  CardType char(20)
+);
