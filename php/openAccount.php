@@ -2,8 +2,7 @@
 
 <?php
 
-$wrongPass = '';
-$wrongUser = '';
+$errorMessage = '';
 
 if (isset($_POST['submit'])) {
 
@@ -17,13 +16,21 @@ if (isset($_POST['submit'])) {
     $checkUser = ($connection->query("SELECT * from useraccount where Username = '$username'"));
     
     if (mysqli_num_rows($checkUser) > 0) {
-      $wrongUser = 'error';
+
+      $errorMessage = 'Username is Already taken! Try another one';
+      require_once './errorPage.php';
+
     } else {
+
       if ($password == $_POST['conPassword']) {
+
         $password = $_POST['conPassword'];
 
         if (!(strlen($password) >= 6)) {
-          $errorMess = "Password is too short.";
+
+          $errorMessage = 'Password is too short! Password must be have at least 6 characters';
+          require_once './errorPage.php';
+
         } else {
 
           $sql = "INSERT INTO useraccount(
@@ -64,11 +71,20 @@ if (isset($_POST['submit'])) {
           if ($connection->query($sql)) {
             require_once '../html/home.html';
           }
+          else{
+            $errorMessage = 'File Submission is Failed';
+            require_once './errorPage.php';
+          }
         }
+      } else {
+        $errorMessage = 'Passwords are not Matched! Try again';
+        require_once './errorPage.php';
       }
+
     }
   } else {
-    echo "Enter details";
+    $errorMessage = 'Input fields are empty!';
+    require_once './errorPage.php';
   }
 }
 
