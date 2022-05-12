@@ -1,5 +1,12 @@
 <?php require_once './openAccount.php'?>
 
+<?php 
+
+  session_start();
+  $_SESSION['accountNo'] = $acc;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +28,24 @@
       justify-content:center;
       align-items:center;
       text-align: center;
+      background-image:url(../images/back2.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
     .success-item{
-      width:500px;
+      width:650px;
       padding:3rem;
       box-shadow: 6px 10px 18px #69696934;
       font-family:'Open Sans', sans-serif;
       line-height:2;
       color:#000;
+      background-color:#fff;
     }
 
     .success-item h2{
       font-size:1.4rem;
+      color:#00ab00;
     }
 
     .success-item i{
@@ -42,22 +55,26 @@
 
     .success-item span{
       font-size:1.2rem;
-      color:red;
       font-weight: 700;
     }
 
     .success-links{
       width:100%;
       display:flex;
-      justify-content: center;
+      justify-content: space-between;
       padding:1rem 0;
     }
 
     .success-links a{
       width:250px;
-      border-radius:5px;
+      border-radius:10px;
       padding:0.5rem;
       color:#fff;
+      transition:0.5s ease;
+    }
+
+    .success-links a:hover{
+      border-radius:0;
     }
 
   </style>
@@ -69,9 +86,10 @@
     <div class="success-item">
       <i class="fa-solid fa-user-check"></i>
       <h2>Your Account is Created Successfully</h2>
-      <span>Account No: <?php echo $acc ?></span>
+      <span>Account No: <?php echo $_SESSION['accountNo'] ?></span>
       <div class="success-links">
-        <a href="" style="background-color:rgb(40, 109, 238)">View Your Account Details</a>
+        <a href="./dataTable.php" style="background-color:rgb(40, 109, 238)">Go to Home</a>
+        <a href="./dataTable.php" style="background-color:rgb(247, 40, 40)">View Your Account Details</a>
       </div>
     </div>
   </section>

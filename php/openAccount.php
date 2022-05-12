@@ -1,8 +1,7 @@
 <?php require_once './connect.php' ?>
 
-<?php
 
-$errorMessage = '';
+<?php
 
 if (isset($_POST['submit'])) {
 
@@ -17,7 +16,7 @@ if (isset($_POST['submit'])) {
     
     if (mysqli_num_rows($checkUser) > 0) {
 
-      $errorMessage = 'Username is Already taken! Try another one';
+      $errorMessage = 'Username is Already taken! Try with another username';
       require_once './errorPage.php';
 
     } else {
@@ -34,9 +33,10 @@ if (isset($_POST['submit'])) {
         } else {
 
           $sql = "INSERT INTO useraccount(
-              First_Name,
-              Last_Name,
-              FULL_Name,
+              FirstName,
+              LastName,
+              FULLName,
+              DateOFBirth,
               NIC,
               PassportNO,
               Gender,
@@ -54,6 +54,7 @@ if (isset($_POST['submit'])) {
               '$_POST[fName]',
               '$_POST[lName]',
               '$_POST[fullName]',
+              '$_POST[DOB]',
               '$_POST[NIC]',
               '$_POST[passport]',
               '$_POST[gender]',
@@ -89,6 +90,7 @@ if (isset($_POST['submit'])) {
 
     }
   } else {
+
     $errorMessage = 'Input fields are empty!';
     require_once './errorPage.php';
   }

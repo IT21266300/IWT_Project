@@ -269,10 +269,10 @@
 .l-name, .l-job{
   font-family: var(--o-h-ft-family);
   text-align: center;
-  font-weight: normal;
 }
 
 .l-name{
+  font-weight: normal;
   font-size:1.5rem;
   color:rgb(75, 75, 75);
 }
@@ -282,6 +282,7 @@
   line-height:2;
   color: var(--sec-bg-clr);
   letter-spacing:0.5px;
+  font-weight: bold;
 }
 
 .m-c-item06{
