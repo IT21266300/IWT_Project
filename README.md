@@ -21,7 +21,7 @@ Process05 (Display form submission successful message)
 
 ![Screenshot_47](https://user-images.githubusercontent.com/104787847/168174643-484ce549-d78d-4e31-9e7a-1ddf6ffb88f6.png)
 
-Process06 (Display the main user's main details on the temporary page)
+Process06 (Display the user's main details on the temporary page)
 
 ![Screenshot_48](https://user-images.githubusercontent.com/104787847/168175012-943e8f39-827b-4785-8323-355141176f23.png)
 
