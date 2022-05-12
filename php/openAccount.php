@@ -65,11 +65,17 @@ if (isset($_POST['submit'])) {
               '$_POST[province]',
               '$_POST[accountType]',
               '$_POST[username]',
-              '$_POST[password]'
+              '$password'
             )";
 
           if ($connection->query($sql)) {
-            require_once '../html/home.html';
+            $accNO = ($connection->query("SELECT AccountNo FROM useraccount WHERE Username = '$username'"));
+            if (mysqli_num_rows($accNO) > 0) {
+              while($rowData = mysqli_fetch_array($accNO)){
+                  $acc = $rowData['AccountNo'];
+              }
+            }
+            require_once './success.php';
           }
           else{
             $errorMessage = 'File Submission is Failed';
