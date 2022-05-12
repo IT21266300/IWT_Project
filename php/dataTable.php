@@ -86,5 +86,5 @@
 </body>
 </html>
 
-
+<?php session_destroy() ?>
 <?php $connection->close() ?>
