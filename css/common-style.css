@@ -189,6 +189,15 @@ html{
   background-color:var(--pri-bg-clr);
 }
 
+.fixed-top-header .t-nav-item .active-page{
+  background-color:var(--pri-bg-clr);
+  color:var(--sec-bg-clr);
+}
+
+.fixed-top-header .t-nav-item .active-page:hover{
+  background-color:var(--pri-bg-clr);
+}
+
 .fixed-top-header .t-nav-item:hover .t-nav-link{
   color: var(--sec-bg-clr);
 }
@@ -319,6 +328,19 @@ html{
 
 .t-nav-item{
   padding:0.5rem 1rem;
+}
+
+.t-nav-item .active-page{
+  color:#fff;
+  border-radius:50px;
+  background-color:var(--sec-bg-clr);
+  padding:0.5rem 1rem;
+}
+
+.t-nav-item .active-page:hover{
+  color:#fff;
+  border-radius:50px;
+  background-color:var(--sec-bg-clr);
 }
 
 .t-nav-item:hover{

@@ -28,8 +28,8 @@
 }
 
 .faq-content{
-    padding:4rem 15rem;
-    width: 100%;
+    margin:4rem auto;
+    width: 800px;
     height:auto;
     display:grid;
     grid-gap:2rem;
@@ -38,7 +38,7 @@
 .faq-item{
     width: 100%;
     height:auto;
-    border-bottom: 2px solid rgb(110, 110, 110);
+    border-bottom:1px solid #fff;
 }
 
 
@@ -49,11 +49,11 @@
     align-items:center;
     cursor: pointer;
     padding-bottom:0.875rem;
+    background-color:var(--sec-bg-clr);
+    padding:1rem;
+    color:var(--pri-bg-clr);
 }
 
-.faq-q h2:hover{
-    color:rgb(110, 110, 110);
-}
 
 .faq-q h2{
     font-size:1.3rem;
@@ -74,15 +74,17 @@
     max-height:0;
     overflow:hidden;
     transition:var(--pri-transition);
+    padding:0 1rem;
+    background-color:rgb(235, 235, 235);
 }
 
 .faq-a-active .faq-a{
-    max-height:250px;
+    max-height:300px;
+    padding:2rem 1rem;
 }
 
 .faq-a-active .faq-q i{
     transform: rotate(-180deg);
-    color:var(--sec-bg-clr);
 }
 
 .faq-a .app-link{

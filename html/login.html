@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open New Account</title>
+  <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
+  <link rel="stylesheet" href="../css/common-style.css">
+  <link rel="stylesheet" href="../css/login.css">
+
+  <!-- fontawesome link for add icons in web page  -->
+  <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main class="container" id="m-cont">
+    <nav class="log-nav">
+      <div class="logo-img">
+        <a href="#"><img src="../images/logo/blue-logo-02.jpg" alt="" class="bank-logo"></a>
+      </div>
+      <a href="#" class="staff-link">Staff Login</a>
+    </nav>
+
+    <!-- main section -->
+    <section class="main-section">
+        <div class="login-content">
+            <div class="log-item">
+                <div class="log-title">
+                    <h1>Welcome Back!</h1>
+                    <h3>Login to Continue</h3>
+                </div>
+                <form action="../php/login.php" method="post" class="login-form">
+                    <div class="form-item">
+                        <label for="">Username</label>
+                        <input type="text" id="user-input" class="input-area" name="username" placeholder="Enter your Username" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="">Password</label>
+                        <input type="password" id="user-input" class="input-area" name="password" placeholder="Enter your password"required>
+                    </div>
+                    <div class="form-bottom">
+                        <button class="login-btn" name="login">Log in</button>
+                        <a href="#">Forget Password?</a>
+                    </div>
+                </form>
+                <div class="reg-load">
+                    <h2>Register Now</h2>
+                    <p>Didn't you register with Online Banking...? Hurry!</p>
+                    <a href="#" class="l-link reg-link">Register Now</a>
+                </div>
+            </div>
+            <div class="log-item guest-item">
+                <div class="g-content">
+                    <h1>New Customer ?</h1>
+                    <p>Proceed to checkout the new customers and you will have an opportunity to open New bank account at the end if one does not already exist for you.</p>
+                    <a href="./home.html" class="l-link guest-link">Log in as a Guest</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- end of main section -->
+
+    <!-- footer -->
+    <footer>
+      <p class="copy-right">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
+    </footer>
+    <!-- end of footer -->    
+  </main>
+  <script>
+    const cpyDate = document.getElementById("cpy-date");
+    cpyDate.innerHTML = new Date().getFullYear();
+  </script>
+</body>
+
