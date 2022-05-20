@@ -85,14 +85,14 @@
           </div>
           <div class="page-toggle">
             <ul class="page-list">
-              <li><span><i class="fa-solid fa-chart-bar"></i><span>Summery</span></span><i class="fa-solid fa-chevron-right"></i></li>
-              <li><span><i class="fa-solid fa-user"></i><span>User Profile</span></span><i class="fa-solid fa-chevron-right"></i></li>
-              <li><span><i class="fa-solid fa-hand-holding-dollar"></i><span>Loans</span></span><i class="fa-solid fa-chevron-right"></i></li>
+              <li class="t-page"><span><i class="fa-solid fa-chart-bar"></i><span>Summery</span></span><i class="fa-solid fa-chevron-right"></i></li>
+              <li class="t-page"><span><i class="fa-solid fa-user"></i><span>User Profile</span></span><i class="fa-solid fa-chevron-right"></i></li>
+              <li class="t-page"><span><i class="fa-solid fa-hand-holding-dollar"></i><span>Loans</span></span><i class="fa-solid fa-chevron-right"></i></li>
             </ul>
           </div>
         </nav>
         <aside class="details-container">
-          <div class="details-page">
+          <div class="details-page active">
             <div class="details-item">
               <div class="account-info">
                 <h3 class="details-title">Saving Account</h3>
@@ -150,6 +150,63 @@
                 </li>
               </ul>
             </div>
+          </div>
+          <div class="details-page">
+            <h1 class="table-title">Account Details</h1>
+            <table class="acc-table">
+              <tr>
+                <td>Account type</td>
+                <td>Saving</td>
+              </tr>
+              <tr>
+                <td>Username</td>
+                <td>laks234</td>
+              </tr>
+              <tr>
+                <td>Full Name</td>
+                <td>Dulan</td>
+              </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td>22/09/2022</td>
+              </tr>
+              <tr>
+                <td>NIC</td>
+                <td>2001234567</td>
+              </tr>
+              <tr>
+                <td>Passport Number</td>
+                <td>234567823</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>Male</td>
+              </tr>
+              <tr>
+                <td>Telephone Number</td>
+                <td>021234567</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>aksd@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Marital Status</td>
+                <td>Single</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>Up Hill house</td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td>Welimada</td>
+              </tr>
+              <tr>
+                <td>Province</td>
+                <td>Uva</td>
+              </tr>
+            </table>
           </div>
         </aside>
       </div>  
@@ -232,6 +289,17 @@
     <a href="#m-cont" class="top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
-
+  <script>
+    
+    const lis = document.querySelectorAll(".t-page");
+    const pages= document.querySelectorAll(".details-page");
+    lis.forEach(fli => {
+      fli.addEventListener("click", function(){
+        pages.forEach(page => {
+          page.
+        });
+      });
+    });
+  </script>
 </body>
 
