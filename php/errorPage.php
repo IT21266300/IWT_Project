@@ -1,4 +1,4 @@
-<?php require_once './openAccount.php'?>
+<?php require_once './register.php'?>
 
 <!DOCTYPE html>
 <html lang="en">

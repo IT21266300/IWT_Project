@@ -5,92 +5,58 @@
 
 if (isset($_POST['submit'])) {
 
+  session_start();
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  if (!empty($_POST['fName']) && $_POST['lName']){
 
-  if (!empty($username) && !empty($password)) {
+    $sql = "INSERT INTO useraccount(
+        FirstName,
+        LastName,
+        FULLName,
+        DateOFBirth,
+        NIC,
+        PassportNO,
+        Gender,
+        Telephone,
+        Email,
+        MaritalStatus,
+        Home,
+        City,
+        Province,
+        AccountType
+      ) VALUES(
+  
+        '$_POST[fName]',
+        '$_POST[lName]',
+        '$_POST[fullName]',
+        '$_POST[DOB]',
+        '$_POST[NIC]',
+        '$_POST[passport]',
+        '$_POST[gender]',
+        '$_POST[TPNumber]',
+        '$_POST[email]',
+        '$_POST[mariS]',
+        '$_POST[address]',
+        '$_POST[city]',
+        '$_POST[province]',
+        '$_POST[accountType]'
+      )";
 
-
-    $checkUser = ($connection->query("SELECT * from useraccount where Username = '$username'"));
-    
-    if (mysqli_num_rows($checkUser) > 0) {
-
-      $errorMessage = 'Username is Already taken! Try with another username';
-      require_once './errorPage.php';
-
-    } else {
-
-      if ($password == $_POST['conPassword']) {
-
-        $password = $_POST['conPassword'];
-
-        if (!(strlen($password) >= 6)) {
-
-          $errorMessage = 'Password is too short! Password must be have at least 6 characters';
-          require_once './errorPage.php';
-
-        } else {
-
-          $sql = "INSERT INTO useraccount(
-              FirstName,
-              LastName,
-              FULLName,
-              DateOFBirth,
-              NIC,
-              PassportNO,
-              Gender,
-              Telephone,
-              Email,
-              MaritalStatus,
-              Home,
-              City,
-              Province,
-              AccountType,
-              Username,
-              Apassword
-            ) VALUES(
-        
-              '$_POST[fName]',
-              '$_POST[lName]',
-              '$_POST[fullName]',
-              '$_POST[DOB]',
-              '$_POST[NIC]',
-              '$_POST[passport]',
-              '$_POST[gender]',
-              '$_POST[TPNumber]',
-              '$_POST[email]',
-              '$_POST[mariS]',
-              '$_POST[address]',
-              '$_POST[city]',
-              '$_POST[province]',
-              '$_POST[accountType]',
-              '$_POST[username]',
-              '$password'
-            )";
-
-          if ($connection->query($sql)) {
-            $accNO = ($connection->query("SELECT AccountNo FROM useraccount WHERE Username = '$username'"));
-            if (mysqli_num_rows($accNO) > 0) {
-              while($rowData = mysqli_fetch_array($accNO)){
-                  $acc = $rowData['AccountNo'];
-              }
-            }
-            require_once './success.php';
-          }
-          else{
-            $errorMessage = 'File Submission is Failed';
-            require_once './errorPage.php';
-          }
+    if ($connection->query($sql)) {
+      $accNO = ($connection->query("SELECT AccountNo FROM useraccount WHERE NIC = '$_POST[NIC]'"));
+      if (mysqli_num_rows($accNO) > 0) {
+        while($rowData = mysqli_fetch_array($accNO)){
+            $_SESSION['accountNo'] = $rowData['AccountNo'];
         }
-      } else {
-        $errorMessage = 'Passwords are not Matched! Try again';
-        require_once './errorPage.php';
       }
-
+      require_once '../html/register.html';
     }
-  } else {
-
+    else{
+      $errorMessage = 'File Submission is Failed';
+      require_once './errorPage.php';
+    }
+  } 
+  else {
     $errorMessage = 'Input fields are empty!';
     require_once './errorPage.php';
   }

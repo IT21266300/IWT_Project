@@ -84,15 +84,16 @@
             <h3 class="account-no"><span style="font-size:1rem; margin-right:0.5rem;">Saving Account</span><span style="font-size:1.4rem;">XXXXXXXX</span></h3>
           </div>
           <div class="page-toggle">
-            <ul class="page-list">
-              <li class="t-page"><span><i class="fa-solid fa-chart-bar"></i><span>Summery</span></span><i class="fa-solid fa-chevron-right"></i></li>
-              <li class="t-page"><span><i class="fa-solid fa-user"></i><span>User Profile</span></span><i class="fa-solid fa-chevron-right"></i></li>
-              <li class="t-page"><span><i class="fa-solid fa-hand-holding-dollar"></i><span>Loans</span></span><i class="fa-solid fa-chevron-right"></i></li>
-            </ul>
+            <button class="t-btn-01" id="t-btn"> 
+              <span><i class="fa-solid fa-chart-bar"></i><span>Summery</span></span><i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="t-btn-02" id="t-btn">
+              <span><i class="fa-solid fa-user"></i><span>User Profile</span></span><i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </nav>
         <aside class="details-container">
-          <div class="details-page active">
+          <div class="details-page-01">
             <div class="details-item">
               <div class="account-info">
                 <h3 class="details-title">Saving Account</h3>
@@ -151,7 +152,7 @@
               </ul>
             </div>
           </div>
-          <div class="details-page">
+          <div class="details-page-02" style="display:none;">
             <h1 class="table-title">Account Details</h1>
             <table class="acc-table">
               <tr>
@@ -289,17 +290,6 @@
     <a href="#m-cont" class="top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
-  <script>
-    
-    const lis = document.querySelectorAll(".t-page");
-    const pages= document.querySelectorAll(".details-page");
-    lis.forEach(fli => {
-      fli.addEventListener("click", function(){
-        pages.forEach(page => {
-          page.
-        });
-      });
-    });
-  </script>
+  <script src="../JS/profile.js"></script>
 </body>
 

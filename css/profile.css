@@ -13,7 +13,7 @@
 
 .profile-nav{
     width:100%;
-    max-height:90vh;
+    max-height:60vh;
     display:grid;
     grid-gap:1rem;
 }
@@ -51,25 +51,43 @@
 
 .page-toggle{
     width: 100%;
+    max-height:10vh;
     box-shadow:var(--pri-box-shadow);
 }
 
-.page-list li{
-    padding:1rem 1rem;
+#t-btn{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     font-size:1rem;
     font-family: var(--pri-ft-family);
     transition:var(--pri-transition);
     cursor: pointer;
+    padding:0.875rem;
+    border:none;
 }
 
-.page-list li:hover{
+#t-btn:hover{
     background-color:var(--sec-bg-clr);
     color: #fff;
 }
 
-.page-list i{
+.t-btn-01{
+    background-color:var(--sec-bg-clr);
+    color: #fff;
+}
+
+.t-btn-02{
+    background-color:var(--pri-bg-clr);
+    color:#000;
+}
+
+.t-btn-active{
+    background-color:var(--sec-bg-clr);
+    color: #fff;
+}
+
+#t-btn i{
     padding:0.3rem;
     font-size:1.2rem;
 }
@@ -82,7 +100,7 @@
     display:none;
 }
 
-.active{
+.details-page-active{
     display:block;
 }
 

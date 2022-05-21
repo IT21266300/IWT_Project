@@ -4,20 +4,19 @@ create table UserAccount(
   FULLName VARCHAR(255) NOT NULL,
   DateOFBirth DATE NOT NULL,
   NIC CHAR(13) NOT NULL,
-  PassportNO CHAR(20),
+  PassportNO CHAR(20) DEFAULT '-',
   Gender CHAR(7) NOT NULL,
   Telephone INT(13) NOT NULL,
-  Email VARCHAR(255),
+  Email VARCHAR(255) DEFAULT '-',
   MaritalStatus CHAR(20) NOT NULL,
   Home VARCHAR(255) NOT NULL,
   City VARCHAR(255) NOT NULL,
   Province VARCHAR(255) NOT NULL,
   AccountType VARCHAR(255) NOT NULL,
-  Username VARCHAR(255) NOT NULL,
-  Apassword VARCHAR(255) NOT NULL,
+  Username VARCHAR(255) DEFAULT '-',
+  Apassword VARCHAR(255) DEFAULT '-',
   AccountNo INT PRIMARY KEY AUTO_INCREMENT,
-  AccountBalance FLOAT(12),
-  CardType CHAR(20)
+  AccountBalance FLOAT(12) DEFAULT 2000.00
 );
 
 ALTER TABLE UserAccount AUTO_INCREMENT = 10001;
