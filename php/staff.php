@@ -1,19 +1,63 @@
+<?php require_once './connect.php' ?>
+
+<?php
+
+  if(isset($_POST['submit'])){
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    $load = "SELECT * FROM staff WHERE userName = '$user' AND Spassword = '$pass' ";
+
+    $result = mysqli_query($connection, $load);
+
+    if(!(mysqli_num_rows($result) == 1)){
+          require_once './log-error.php';
+    }
+    else
+    {
+      if($result){
+        while($row = mysqli_fetch_assoc($result)){
+          $SID = $row['STID'];
+          $sName = $row['Sortname'];
+          $fName = $row['fullname'];
+          $dob = $row['DOB'];
+          $email = $row['email'];
+          $tp = $row['Tphone'];
+          $address = $row['Saddress'];
+          $js = $row['jobStatus'];
+          $depart = $row['department'];
+          $jDate = $row['joinDate'];
+          $bSal = $row['basicSalary'];
+          $OTH = $row['oTHRS'];
+          $mSal = $row['monthlySalary'];
+        }
+      }
+    }
+
+  }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local Trust Bank Contact</title>
+  <title>Local Trust Bank Home</title>
   <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
   <link rel="stylesheet" href="../css/common-style.css">
-  <link rel="stylesheet" href="../css/contact.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/staff.css">
 
   <!-- fontawesome link for add icons in web page  -->
   <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  
   <main class="container" id="m-cont">
     <nav class="details-nav">
       <ul class="d-nav details-list">
@@ -64,7 +108,7 @@
         </li>
         <!-- end of dropdown list -->
 
-        <li class="t-nav-item"><a href="../html/contact.html" class="t-nav-link active-page">Contact</a></li>
+        <li class="t-nav-item"><a href="../html/contact.html" class="t-nav-link">Contact</a></li>
         <li class="t-nav-item"><a href="#" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Accounts</span></a></li>
       </ul>
       </nav>
@@ -73,54 +117,72 @@
 
     <!-- main section -->
     <section class="main-section">
-      <!-- banner -->
-      <div class="banner">
-        <div class="banner-content">
-          <h1 class="banner-title">Contact Us</h1>
-        </div>
-      </div>
-      <!-- end of banner -->
-      
-      <div class="contact-content">
-        <div class="contact-item">
-          <ul class="contact-list">
+      <div class="staff-content">
+        <div class="page-item item-01">
+          <div class="staff-img">
+            <img src="../images/avater.jpg" alt="#">
+          </div>
+          <ul class="staff-list personal">
             <li>
-              <i class="fa-solid fa-location-dot"></i>
-              <h2>Head Office</h2>
-              <p>Royal Junction Park, Kandy</p>
+              <span id="staff-de-name">Staff ID Number</span><br>
+              <span id="staff-de-value"><?php echo $SID ?></span>
             </li>
             <li>
-              <i class="fa-solid fa-phone"></i>
-              <h2>Phone Number</h2>
-              <p>+94 112356234</p>
+              <span id="staff-de-name">Short Name</span><br>
+              <span id="staff-de-value"><?php echo $sName ?></span>
             </li>
             <li>
-              <i class="fa-solid fa-envelope"></i>
-              <h2>Email</h2>
-              <p>localTrust@info.lk</p>
+              <span id="staff-de-name">Full Name</span><br>
+              <span id="staff-de-value"><?php echo $fName ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Date of Birth</span><br>
+              <span id="staff-de-value"><?php echo $dob ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Email</span><br>
+              <span id="staff-de-value"><?php echo $email ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Telephone NO</span><br>
+              <span id="staff-de-value"><?php echo "(+94)".$tp ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Address</span><br>
+              <span id="staff-de-value"><?php echo $address ?></span>
             </li>
           </ul>
         </div>
-        <div class="contact-item form-content">
-          <div class="contact-form">
-            <h2>Message Now</h2>
-            <form action="../php/contact.php" method="post">
-              <div class="c-form-item">
-                <input type="email" name="cEmail" id="cEmai" class="c-input" placeholder="Enter your email address" required>
-                <input type="text" name="cName" id="cName" class="c-input" placeholder="Enter your name" required>
-                <textarea name="cMessage" id="cMessage" placeholder="Enter your message" required></textarea>
-              </div>
-              <div class="c-form-item">
-                <input type="submit" value="Send Message" id="send-btn" name="submit">
-              </div>
-            </form>
-          </div>
-          <div class="g-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63320.41799049851!2d80.59076167604273!3d7.294629090208355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae366266498acd3%3A0x411a3818a1e03c35!2sKandy!5e0!3m2!1sen!2slk!4v1651948099158!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+        <div class="page-item item-02">
+          <h1>Bank Details</h1>
+          <ul class="staff-list">
+            <li>
+              <span id="staff-de-name">Job Status</span><br>
+              <span id="staff-de-value"><?php echo $js ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Department</span><br>
+              <span id="staff-de-value"><?php echo $depart ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Join Date</span><br>
+              <span id="staff-de-value"><?php echo $jDate ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Basic Salary</span><br>
+              <span id="staff-de-value"><?php echo "LKR.".$bSal ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">OT Hours</span><br>
+              <span id="staff-de-value"><?php echo $OTH ?></span>
+            </li>
+            <li>
+              <span id="staff-de-name">Monthly Salary</span><br>
+              <span id="staff-de-value"><?php echo "LKR.".$mSal ?></span>
+            </li>
+          </ul>
         </div>
       </div>
-
     </section>
     <!-- end of main section -->
 
@@ -200,6 +262,8 @@
     <a href="#m-cont" class="top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
-
 </body>
+</html>
+
+<?php $connection->close() ?>
 

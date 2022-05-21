@@ -2,9 +2,15 @@
 
 <?php
 
-session_start();
+    $getUser = '';
+
+    session_start();  
 
     $getUser = $_SESSION['username'];
+
+    if($getUser == ''){
+      header("location:../html/login.html");
+    }
 
     $sql = "SELECT *FROM useraccount where Username = '$getUser'";
 
@@ -120,7 +126,7 @@ session_start();
         <nav class="profile-nav">
           <div class="about-profile">
             <div class="profile-image">
-              <img src="../images/l1.jpg" alt="#" class="profile-img">
+              <img src="../images/avater.jpg" alt="#" class="profile-img">
             </div>
             <h1 class="profile-name">Hi <?php echo $fname ?></h1>
             <h3 class="account-no"><span style="font-size:1rem; margin-right:0.5rem;"><?php echo $accountType ?></span><span style="font-size:1.4rem;"><?php echo $accountNo ?></span></h3>

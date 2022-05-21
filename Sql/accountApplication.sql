@@ -16,7 +16,7 @@ create table UserAccount(
   Username VARCHAR(255) DEFAULT '-',
   Apassword VARCHAR(255) DEFAULT '-',
   AccountNo INT PRIMARY KEY AUTO_INCREMENT,
-  AccountBalance FLOAT(12) DEFAULT 2000.00
+  AccountBalance FLOAT DEFAULT 2000.00
 );
 
 ALTER TABLE UserAccount AUTO_INCREMENT = 10001;

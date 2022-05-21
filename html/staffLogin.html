@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open New Account</title>
+  <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
+  <link rel="stylesheet" href="../css/common-style.css">
+  <style>
+    .main-section{
+        width:100%;
+        background-image: url(../images/back3.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+    .account-nav{
+        background:var(--sec-bg-clr);
+        padding:20px 0;
+    }
+
+    .logo-img{
+        width:150px;
+        margin: 0 auto;
+    }
+
+    .s-log-content{
+        width:500px;
+        padding:20px;
+        background-color:#fff;
+        box-shadow:var(--pri-box-shadow);
+        position:absolute;
+        left:30%;
+        top:20%;
+    }
+
+    .s-log-content h1{
+        text-align: center;
+        font-size:25px;
+        font-family: 'Open Sans', sans-serif;
+        line-height:2;
+        color:#ff0000;
+    }
+
+    .log-item{
+        width: 100%;
+        padding:15px 0;
+    }
+
+    .log-item label{
+        font-size:20px;
+        font-family: 'Open Sans', sans-serif;
+        line-height:2;
+    }
+
+    .log-item input{
+        width: 100%;
+        padding:15px;
+        background-color:rgb(224, 224, 224);
+        border:none;
+        font-size:16px;
+    }
+
+    #sub-btn{
+        background-color:rgb(40, 109, 238);
+        color:#fff;
+        font-size:16px;
+        border-radius:10px;
+        width:130px;
+        padding:8px;
+        border:none;
+        cursor: pointer;
+        margin:15px 150px;
+    }
+
+    #sub-btn:hover{
+        opacity:0.8;
+    }
+
+  </style>
+
+  <!-- fontawesome link for add icons in web page  -->
+  <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main class="container" id="m-cont">
+    <nav class="account-nav">
+      <div class="logo-img">
+        <a href="../html/home.html"><img src="../images/logo/blue-logo-02.jpg" alt="" class="bank-logo"></a>
+      </div>
+    </nav>
+
+    <!-- main section -->
+    <section class="main-section">
+        <div class="s-log-content">
+            <h1>Staff Login Only</h1>
+            <form action="../php/staff.php" method="post" class="staff-form">
+                <div class="log-item">
+                    <label for="">Enter Username</label><br>
+                    <input type="text" name="username" placeholder="Enter Username" required>
+                </div>
+                <div class="log-item">
+                    <label for="">Password</label><br>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                </div>
+                <input type="submit" name="submit" id="sub-btn" value="Login">
+            </form>
+        </div>
+    </section>
+    <!-- end of main section -->
+
+    <!-- footer -->
+    <footer>
+      <p class="copy-right">&copy;copyright &copy;Local Trust Bank(PVT).LTD <span id="cpy-date"></span> .All rights reserved</p>
+    </footer>
+    <!-- end of footer -->    
+  </main>
+  <script>
+    const cpyDate = document.getElementById("cpy-date");
+    cpyDate.innerHTML = new Date().getFullYear();
+  </script>
+</body>
+

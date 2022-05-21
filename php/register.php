@@ -29,7 +29,7 @@
                     else{
                         $encPassword = sha1($cPassword);
 
-                        $sql =($connection->query("UPDATE  useraccount SET Username = '$username', Apassword = '$password' WHERE AccountNo = '$aNo'")); 
+                        $sql =($connection->query("UPDATE  useraccount SET Username = '$username', Apassword = '$cPassword' WHERE AccountNo = '$aNo'")); 
 
                         if($sql){
                             header("Location:../html/login.html");

@@ -1,0 +1,70 @@
+.main-section{
+    width: 100%;
+    padding:60px 150px;
+    background-image: url(../images/back3.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+
+
+.staff-content{
+    width: 100%;
+    background-color: #fff;
+    box-shadow:var(--pri-box-shadow);
+    display:grid;
+    grid-template-columns:1.5fr 2fr;
+}
+
+
+.staff-list{
+    padding:30px;
+}
+
+.item-02{
+    background-color: rgb(40, 109, 238);
+    color:#fff;
+}
+
+.staff-img{
+    width: 200px;
+    margin: 0 auto;
+    padding:1rem;
+}
+
+.staff-list li{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.staff-list li{
+    padding:15px 70px;
+}
+
+#staff-de-name{
+    font-size:18px;
+}
+
+#staff-de-value{
+    font-size:24px;
+}
+
+.item-01 #staff-de-name{
+    color:rgb(109, 109, 109);
+}
+
+.item-01 #staff-de-value{
+    color:rgb(40, 109, 238);
+    line-height:2;
+    font-weight: bold;
+}
+
+
+.item-02 h1{
+    text-align: center;
+    font-size:35px;
+    line-height:3;
+}
+
+.item-02 #staff-de-name{
+    color:rgb(204, 204, 204);
+}
