@@ -1,50 +1,70 @@
-<?php require_once './connect.php' ?>
+<?php require_once './connect.php'?>
 
-<?php
 
-    $getUser = '';
+<?php 
 
-    session_start();  
+  $checkUser = '';
+  $accountNo = '';
 
-    $getUser = $_SESSION['username'];
+  session_start();
 
-    if($getUser == ''){
-      header("location:../html/login.html");
-    }
+  $_SESSION['trueMessage'] = '';
 
-    $sql = "SELECT *FROM useraccount where Username = '$getUser'";
+  $checkUser = $_SESSION['username'];
 
-    $result = mysqli_query($connection,$sql);
+  if($checkUser == ''){
+    header('Location:../html/register.html');
+  }
+  else{
+      
+      $sql = ($connection->query("SELECT * FROM useraccount WHERE Username = '$checkUser'"));
 
-    if($result){
-        // echo mysqli_num_rows($result).
-
-        while($row = mysqli_fetch_assoc($result)){
+      if($sql){
+        
+        while($row = mysqli_fetch_assoc($sql)){
           $fname = $row['FirstName'];
           $lname = $row['LastName'];
-          $fullName =  $row['FULLName'];
           $DOB = $row['DateOFBirth'];
-          $NIC =  $row['NIC'];
-          $passport = $row['PassportNO'];
-          $gender = $row['Gender'];
-          $TP =  $row['Telephone'];
-          $email = $row['Email'];
-          $mariStatus = $row['MaritalStatus'];
-          $home =  $row['Home'];
+          $address =  $row['Home'];
           $city = $row['City'];
           $province = $row['Province'];
-          $accountType =  $row['AccountType'];
-          $username =  $row['Username'];
           $accountNo =  $row['AccountNo'];
-          $accBalance = $row['AccountBalance'];
+          $cardType = $row['cardType'];
         }
+      }
+      if(!($cardType == '-')){
+        $_SESSION['trueMessage'] = "Sorry..! You can have only one credit card in our Bank";
+        header("Location:./cardTrue.php");
+      }
     }
+
+  if(isset($_POST['submit'])){
+    
+    if(!empty($_POST['country']) && !empty($_POST['PostalCode']) && !empty($_POST['employeeStatus']) && !empty($_POST['Workplace']) && !empty($_POST['monthlyincome']) && !empty($_POST['workTPNumber']) && !empty($_POST['cardType'])){
+      $sql = ($connection->query("UPDATE useraccount SET 
+        Country = '$_POST[country]',
+        ZipPostalCode = '$_POST[PostalCode]',
+        EmployeeStatus = '$_POST[employeeStatus]',
+        EmployeeIndustry = '$_POST[Workplace]',
+        MonthlyIncome = '$_POST[monthlyincome]',
+        workTelnumber = '$_POST[workTPNumber]',
+        cardType = '$_POST[cardType]' WHERE Username = '$checkUser'"));
+
+      if($sql){
+        $_SESSION['trueMessage'] = "Your Loan was successfully Submitted.";
+        header("Location:./cardTrue.php");
+      }
+      else{
+        $offMessage = "Credit card Application Submission was Failed";
+        require_once './failed.php';
+      }
+
+    }
+
+  }
 
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,17 +72,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile</title>
+  <title>Local Trust Bank New Credit Card Application</title>
   <link rel="shortcut icon" href="../images/logo/blue-logo-02.jpg">
+  <link rel="stylesheet" href="../css/cardApplication.css">
   <link rel="stylesheet" href="../css/common-style.css">
-  <link rel="stylesheet" href="../css/profile.css">
-
   <!-- fontawesome link for add icons in web page  -->
   <script src="https://kit.fontawesome.com/4e05476d91.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  
   <main class="container" id="m-cont">
     <nav class="details-nav">
       <ul class="d-nav details-list">
@@ -90,9 +108,10 @@
             <button type="button"  id="close-btn" onclick="clearContent()"><i class="fa-solid fa-xmark"></i></button>
           </div>
         </div>
+        <button onclick="togNav()" class="btn hamburger"><i class="fa-solid fa-bars"></i></button>
       </div>
       <ul class="t-nav-list">
-        <li class="t-nav-item"><a href="../html/home.html" class="t-nav-link">Home</a></li>
+        <li class="t-nav-item"><a href="#" class="t-nav-link">Home</a></li>
 
         <!-- dropdown list -->
         <li class="t-nav-item">
@@ -113,7 +132,7 @@
         </li>
         <!-- end of dropdown list -->
 
-        <li class="t-nav-item"><a href="../html/contact.html" class="t-nav-link">Contact</a></li>
+        <li class="t-nav-item"><a href="#" class="t-nav-link">Contact</a></li>
         <li class="t-nav-item"><a href="#" class="t-nav-link"><i class="fa-solid fa-circle-user"></i><span>Accounts</span></a></li>
       </ul>
       </nav>
@@ -122,144 +141,79 @@
 
     <!-- main section -->
     <section class="main-section">
-      <a href="./logout.php" class="logout-btn"><span>Logout</span><i class="fa-solid fa-right-from-bracket"></i></a>
-      <div class="profile-content">
-        <nav class="profile-nav">
-          <div class="about-profile">
-            <div class="profile-image">
-              <img src="../images/avater.jpg" alt="#" class="profile-img">
-            </div>
-            <h1 class="profile-name">Hi <?php echo $fname ?></h1>
-            <h3 class="account-no"><span style="font-size:1rem; margin-right:0.5rem;"><?php echo $accountType ?></span><span style="font-size:1.4rem;"><?php echo $accountNo ?></span></h3>
+      <h1>New Credit card Application</h1>
+      <div class="ccaform">
+      <form method="post" action="./cardApplication.php">
+
+          <div class="row">
+           <label for="Name">Full Name:</label><br>
+           <input type="text" id="fname" class="input-text2" name="firstname" style="opacity:0.5;" readonly="true" value="<?php echo $fname ?>">
+           <input type="text" id="lname" class="input-text2" name="lastname" style="opacity:0.5;" readonly="true" value="<?php echo $lname ?>"><br>
+
+           <label for="Date of Birth">Date of Birth:</label><br>
+           <input type="date" id="dob" class="input-text" name="dob" style="opacity:0.5;" readonly="true" value="<?php echo $DOB ?>"><br>
+
+           <label for="Address">Address:</label><br>
+           <input type="text" id="address" class="input-text" name="address" style="opacity:0.5;" readonly="true" value="<?php echo $address ?>"><br>
+
+           <input type="text" class="input-text2" name="city" style="opacity:0.5;" readonly="true" value="<?php echo $city ?>">
+           <input type="text" class="input-text2" name="province" style="opacity:0.5;" readonly="true" value="<?php echo $province ?>"><br>
+
+           <input type="number" class="input-text2" placeholder="Zip / Postal code" name="PostalCode">
+           <select name="country" id="f-dropdown">
+             <option value="">country</option>
+             <option value="Sri Lanka">Sri Lanka</option>
+             <option value="China">China</option>
+             <option value="India">India</option>
+             <option value="Uganda">Uganda</option>
+           </select>
+        
+           </lable><br />
+          <label for="accountNo">Account Number(Optional):</label>
+          <input type="number" name="accountNo" id="accountNo" class="input-text3" style="opacity:0.5;" readonly="true" value="<?php echo $accountNo ?>">
+          <br />
+           <label for="employeeStatus">Employee Status:</label>
+           <input type="text" name="employeeStatus" id="employeeStatus" placeholder="Employee Status" class="input-text">
+           <br />
+           <label for="workplace">Workplace:</label>
+           <input type="text" name="Workplace" id="workplace" class="input-text" placeholder="Name of Workplace" >
+           <br />
+           <label for="monthlyincome">Monthly Income:</label>
+           <input type="number" name="monthlyincome" id="monthlyincome" class="input-text" placeholder="Monthly Income in LKR">
+           <br />
+           <label for="workTPNumber"> Workplace Telephone Number:</label>
+           <input type="number" name="workTPNumber" id="workTPNumber" class="input-text" placeholder="Telephone Number">
+  
+           <label for="workTPNumber"> Select Card Type:</label>
+           <select name="cardType" id="f-dropdown" class="input-text">
+             <option value="">Credit Card Type</option>
+             <option value="Blue">Blue Card</option>
+             <option value="Black">Black Card</option>
+             <option value="Red">Red Card</option>
+           </select>
+          
+
+           <div class="agree-item">
+            <input type="checkbox" name="agree" id="agree" value="1"  required>
+            <label for=""><strong style="color:rgb(40, 109, 238);">*</strong>I agree to <span>terms & conditions</span></label>
           </div>
-          <div class="page-toggle">
-            <button class="t-btn-01" id="t-btn"> 
-              <span><i class="fa-solid fa-chart-bar"></i><span>Summery</span></span><i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <button class="t-btn-02" id="t-btn">
-              <span><i class="fa-solid fa-user"></i><span>User Profile</span></span><i class="fa-solid fa-chevron-right"></i>
-            </button>
+          <div class="form-btn">
+            <input type="reset" value="Reset" id="resetBtn" name="reset">
+            <input type="submit" value="Submit Application" id="submitBtn" name="submit">
           </div>
-        </nav>
-        <aside class="details-container">
-          <div class="details-page-01">
-            <div class="details-item">
-              <div class="account-info">
-                <h3 class="details-title"><?php echo $accountType ?></h3>
-                <ul class="balance-list">
-                  <li>
-                    <h2 style="color:var(--sec-bg-clr);"><?php echo "LKR." . $accBalance ?></h2>
-                    <span>Available Balance</span>
-                  </li>
-                  <li>
-                    <h2 style="color: #fb1c16;">LKR 2123.90</h2>
-                    <span>Recent Payment</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-info">
-                <h3 class="details-title">Credit Card Balance</h3>
-                <h2>LKR 1000023.00</h2>
-                <img src="../images/6072743.jpg" alt="#" class="card-img">
-              </div>
-            </div>
-            <div class="trans-content">
-              <div class="trans-link">
-                <a href="#">View All Transactions</a>
-              </div>
-              <ul class="trans-list">
-                <li>
-                  <div class="trans-info">
-                    <h1>Saving Account</h1>
-                    <p>Daraz Online Shopping</p>
-                    <p>22/04/2022</p>
-                  </div>
-                  <div class="trans-amount">
-                    <h2>+200.00</h2>
-                  </div>
-                </li>
-                <li>
-                  <div class="trans-info">
-                    <h1>Saving Account</h1>
-                    <p>Daraz Online Shopping</p>
-                    <p>22/04/2022</p>
-                  </div>
-                  <div class="trans-amount">
-                    <h2>+200.00</h2>
-                  </div>
-                </li>
-                <li>
-                  <div class="trans-info">
-                    <h1>Saving Account</h1>
-                    <p>Daraz Online Shopping</p>
-                    <p>22/04/2022</p>
-                  </div>
-                  <div class="trans-amount">
-                    <h2>+200.00</h2>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="details-page-02" style="display:none;">
-            <h1 class="table-title">Account Details</h1>
-            <table class="acc-table">
-              <tr>
-                <td>Account type</td>
-                <td><?php echo $accountType ?></td>
-              </tr>
-              <tr>
-                <td>Username</td>
-                <td><?php echo $username ?></td>
-              </tr>
-              <tr>
-                <td>Full Name</td>
-                <td><?php echo $fullName ?></td>
-              </tr>
-              <tr>
-                <td>Date of Birth</td>
-                <td><?php echo $DOB ?></td>
-              </tr>
-              <tr>
-                <td>NIC</td>
-                <td><?php echo $NIC ?></td>
-              </tr>
-              <tr>
-                <td>Passport Number</td>
-                <td><?php echo $passport ?></td>
-              </tr>
-              <tr>
-                <td>Gender</td>
-                <td><?php echo $gender ?></td>
-              </tr>
-              <tr>
-                <td>Telephone Number</td>
-                <td><?php echo "(+94)" . $TP ?></td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td><?php echo $email ?></td>
-              </tr>
-              <tr>
-                <td>Marital Status</td>
-                <td><?php echo $mariStatus ?></td>
-              </tr>
-              <tr>
-                <td>Address</td>
-                <td><?php echo $home ?></td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td><?php echo $city ?></td>
-              </tr>
-              <tr>
-                <td>Province</td>
-                <td><?php echo $province ?></td>
-              </tr>
-            </table>
-          </div>
-        </aside>
-      </div>  
+        </div>
+
+            
+           
+
+
+
+       
+
+
+      </form>
+    </div>
+      
     </section>
     <!-- end of main section -->
 
@@ -336,12 +290,12 @@
     </section>
     <!-- end of feedback  form -->
 
-    <a href="#m-cont" class="top-link"><i class="fa-solid fa-circle-chevron-up"></i></a>
+    <a href="#m-cont" class="scroll-link top-link"><i class="fa-solid fa-angles-up"></i></a>
   </main>
   <script src="../JS/script.js"></script>
-  <script src="../JS/profile.js"></script>
+  <script src="../JS/CCAscript.js"></script>
+  
 </body>
 </html>
 
-
-<?php $connection->close()?>
+<?php $connection->close() ?>

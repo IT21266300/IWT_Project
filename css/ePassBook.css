@@ -1,0 +1,120 @@
+/* google fonts link */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Nunito:wght@300;400&family=Open+Sans&family=Poppins:wght@300&family=Roboto&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  width: 100%;
+}
+
+.btn{
+  outline: none;
+  border:none;
+  background: transparent;
+}
+.ccaform{
+  margin: auto;
+}
+.Countrycont{
+  margin: auto;
+}
+h1{
+  font-size:  2rem;
+  text-align: center;
+  
+}
+
+:root{
+  --pri-sec-clr:rgb(233, 126, 126);
+  --pri-clr:rgb(0, 0, 0);
+  --sec-clr:rgb(215, 227, 255);
+  --thr-clr:rgb(86, 173, 255);
+  --pri-bg-clr:rgb(252, 252, 252);
+  --sec-bg-clr:rgb(40, 109, 238);
+  --pri-ft-family:'Open Sans', sans-serif;
+  --sec-ft-family:'Nunito', sans-serif;
+  --h-ft-family:'Roboto', sans-serif;
+  --o-h-ft-family:'Poppins', sans-serif;
+  --o-ft-family:'Lato', sans-serif;
+  --h1-ft-size:2rem; 
+  --h2-ft-size:1.75rem;
+  --h3-ft-size:1.5rem;
+  --gen-ft-size:0.875rem;
+  --b-ft-size:1.2rem;
+  --fixed-ft-size:1.15rem;
+  --pri-pad:0.375rem;
+  --sec-pad:1.2rem;
+  --o-pad:2rem;
+  --pri-w-h:3rem;
+  --fixed-w-h:2rem;
+  --pri-transition: all 0.5s ease;
+  --pri-lin-transition: all 0.5s linear;
+  --sec-transition: all 1s ease;
+  --sec-lin-transition: all 1s linear;
+  --pri-box-shadow:6px 10px 18px #69696934;
+  --sec-box-shadow:10px 15px 20px #6969699f;
+}
+.main-section{
+  width:100%;
+  height:auto;
+  background-image: url(../images/back3.jpg);
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: cover;
+  padding:2rem 0;
+}
+
+.eTitle{
+    font-size:2.5rem;
+    letter-spacing:2px;
+    line-height:2;
+    font-family:var(--h-ft-family);
+}
+
+.eTitle span{
+    color:var(--sec-bg-clr);
+    font-size:2.8rem;
+}
+
+.titles{
+    width: 100%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:1rem;
+}
+
+.titles h2{
+    font-family:var(--pri-ft-family);
+    font-size:1.5rem;
+}
+
+
+table, th, td {
+    margin:auto;
+    border: 1px solid white;
+    box-shadow:var(--pri-box-shadow);    
+}
+
+th, td {
+    background-color: var(--thr-clr);
+    font-size: large;
+    font-family: var(--pri-ft-family);
+    padding: 1rem 1rem 1rem;
+}
+table{
+    border-collapse: collapse;
+    width:70%;
+}

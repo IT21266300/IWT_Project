@@ -1,8 +1,8 @@
 <?php require_once './connect.php' ?>
 
-<?php
+<?php 
 
-  session_start();  
+  session_start();
 
 ?>
 
@@ -80,11 +80,11 @@
   <section class="error-content">
     <div class="error-item">
       <i class="fa-solid fa-triangle-exclamation"></i>
-      <h2>Form Submission is Failed</h2>
-      <span><?php echo $_SESSION['checkData'] ?></span>
+      <h2>Loan Submission is Failed</h2>
+      <span><?php echo $_SESSION['failError'] ?></span>
       <div class="error-links">
-        <a href="../html/openAccount.html" style="background-color:rgb(40, 109, 238)">Register Again</a>
-        <a href="../html/account.html" style="background-color:rgb(247, 40, 40)">Cancel registration</a>
+        <a href="./loanApplication.php" style="background-color:rgb(40, 109, 238)">Apply to Loan Again</a>
+        <a href="../html/home.html" style="background-color:rgb(247, 40, 40)">Cancel</a>
       </div>
     </div>
   </section>

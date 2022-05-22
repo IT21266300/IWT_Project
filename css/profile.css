@@ -1,3 +1,22 @@
+.logout-btn{
+    margin:0 86%;
+    padding:1rem 2rem;
+    background-color:var(--sec-bg-clr);
+    color:#fff;
+    font-size:1.3rem;
+    font-family: var(--pri-ft-family);
+    border-radius:10px;
+    transition:var(--pri-transition);
+}
+
+.logout-btn:hover{
+    border-radius:0;
+}
+
+.logout-btn i{
+    margin-left:10px;
+}
+
 .main-section{
     width: 100%;
     padding:2rem 4rem;

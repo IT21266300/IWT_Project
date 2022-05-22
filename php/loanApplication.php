@@ -8,6 +8,8 @@
     session_start();
   
     $getUser = $_SESSION['username'];
+
+    $_SESSION['failError'] = '';
   
     if($getUser == ''){
       header('Location:../html/register.html');
@@ -47,8 +49,8 @@
       !empty($_POST['income']) && !empty($_POST['workTPNumber'])){
 
         if($_POST['income'] < 30000.000){
-          $offMessage = "Your Monthly Income is insufficient to apply to Loans";
-          require_once './loan-failed.php';
+          $_SESSION['failError'] = "Your Monthly Income is insufficient to apply for Loans";
+          header("Location:./failed.php");
         }
         else{
 
@@ -104,33 +106,33 @@
           switch($_POST['loanType']){
             case 'Personal Loan':
               $interestRate = 8;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break;
             case 'Business Loan':
               $interestRate = 10;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break;
             case 'Education Loan':
               $interestRate = 3;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break; 
             case 'Home Loan':
               $interestRate = 12;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break;
             case 'Auto Loan':
               $interestRate = 9;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break;
             case 'Travel & vacation Loan':
               $interestRate = 7;
-              $calInterest = ($_POST['loanAmount'] * $interestRate / 100);
-              $finalAmount = ($_POST['loanAmount'] + $calInterest) * $nMonths;
+              $calInterest = ($_POST['loanAmount'] * $interestRate / 100) * $nMonths;
+              $finalAmount = ($_POST['loanAmount'] + $calInterest);
               break;
           }
 
@@ -176,14 +178,14 @@
             header("Location:./loanResult.php");
           }
           else{
-            $offMessage = "Loan Submission was Failed";
-            require_once './loan-failed.php';
+            $_SESSION['failError'] = "Loan Submission was Failed";
+            header("Location:./failed.php");
           }
         }
       }
       else{
-        $offMessage = "Some Details are Required!";
-        require_once './loan-failed.php'; 
+        $_SESSION['failError'] = "Some Details are Required!";
+        header("Location:./failed.php"); 
       }
 
     }
@@ -310,15 +312,15 @@
             </select>
           </div>
           <div class="form-item">
-            <label for="">Person Status: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Employee Status: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="text" name="personStatus" id="personStatus" class="f-input" placeholder="Employee Status" required>
           </div>
           <div class="form-item">
-            <label for="">Person Industry: <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Employee Industry: <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="text" name="personIndustry" id="personIndustry" class="f-input" placeholder="Employee Industry" required>
           </div>
           <div class="form-item">
-            <label for="">monthly Income (LKR): <strong style="color:rgb(40, 109, 238);">*</strong></label>
+            <label for="">Monthly Income (LKR): <strong style="color:rgb(40, 109, 238);">*</strong></label>
             <input type="number" step="0.01" name="income" id="income" class="f-input" placeholder="Monthly Income (LKR)" required>
           </div>
           <div class="form-item">

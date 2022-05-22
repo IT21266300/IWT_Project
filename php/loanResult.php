@@ -125,7 +125,7 @@
     <div class="l-result-content">
         <div class="popup-message">
             <i class="fa-solid fa-circle-check"></i>
-            <h1>Your Loan was successfully approved.</h1>
+            <h1>Your Loan Application was successfully Submitted.</h1>
         </div>
         <div class="about-loan">
             <h2>Loan Details</h2>

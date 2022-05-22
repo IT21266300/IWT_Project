@@ -7,6 +7,8 @@ if (isset($_POST['submit'])) {
 
   session_start();
 
+  $_SESSION['checkData'] = '';
+
   if (!empty($_POST['fName']) && $_POST['lName']){
 
     $sql = "INSERT INTO useraccount(
@@ -49,16 +51,16 @@ if (isset($_POST['submit'])) {
             $_SESSION['accountNo'] = $rowData['AccountNo'];
         }
       }
-      require_once '../html/register.html';
+      header("Location:../html/register.html");
     }
     else{
-      $errorMessage = 'File Submission is Failed';
-      require_once './errorPage.php';
+      $_SESSION['checkData'] = 'File Submission is Failed';
+      header("Location:./errorPage.php");
     }
   } 
   else {
-    $errorMessage = 'Input fields are empty!';
-    require_once './errorPage.php';
+    $_SESSION['checkData'] = 'Input fields are empty!';
+    header("Location:./errorPage.php");
   }
 }
 
